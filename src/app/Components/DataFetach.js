@@ -15,12 +15,13 @@ const DataFetach = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  console.log(process.env.NEXT_PUBLIC_API_URL);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://sealsbook-backend-springboot-env.eba-mvn559wt.ap-northeast-1.elasticbeanstalk.com/api/products/all"
+          `${process.env.NEXT_PUBLIC_API_URL}/all`
         );
         setProducts(response.data);
       } catch (err) {

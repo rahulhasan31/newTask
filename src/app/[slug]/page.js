@@ -33,7 +33,7 @@ export default function ProductDetails({ params }) {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `http://sealsbook-backend-springboot-env.eba-mvn559wt.ap-northeast-1.elasticbeanstalk.com/api/products/${slug}`
+          `${process.env.NEXT_PUBLIC_API_URL}/${slug}`
         );
         if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
